@@ -2,15 +2,16 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/techwiz37/waSocket.svg)](https://pkg.go.dev/github.com/techwiz37/waSocket)
 
 waSocket is a Go library for the WhatsApp web multidevice API.
-
+This is a fork that use a workaround for slow groupm essage, and some unmerged PR
 ## Discussion
-Matrix room: [#waSocket:maunium.net](https://matrix.to/#/#waSocket:maunium.net)
+<!-- Matrix room: [#waSocket:maunium.net](https://matrix.to/#/#waSocket:maunium.net) -->
+Whatsapp Group: https://chat.whatsapp.com/BDI3NMjO7vW7RlOqgdxtmw
 
 For questions about the WhatsApp protocol (like how to send a specific type of
 message), you can also use the [WhatsApp protocol Q&A] section on GitHub
 discussions.
 
-[WhatsApp protocol Q&A]: https://github.com/tulir/waSocket/discussions/categories/whatsapp-protocol-q-a
+<!-- [WhatsApp protocol Q&A]: https://github.com/tulir/waSocket/discussions/categories/whatsapp-protocol-q-a -->
 
 ## Usage
 The [godoc](https://pkg.go.dev/github.com/techwiz37/waSocket) includes docs for all methods and event types.
