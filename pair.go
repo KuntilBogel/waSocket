@@ -17,11 +17,11 @@ import (
 	"go.mau.fi/libsignal/ecc"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	waProto "github.com/amiruldev20/waSocket/binary/proto"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/types/events"
-	"github.com/amiruldev20/waSocket/util/keys"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/proto/waAdv"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
+	"github.com/techwiz37/waSocket/util/keys"
 )
 
 func (cli *Client) handleIQ(node *waBinary.Node) {
@@ -98,7 +98,7 @@ func (cli *Client) handlePairSuccess(node *waBinary.Node) {
 }
 
 func (cli *Client) handlePair(deviceIdentityBytes []byte, reqID, businessName, platform string, jid types.JID) error {
-	var deviceIdentityContainer waProto.ADVSignedDeviceIdentityHMAC
+	var deviceIdentityContainer waAdv.ADVSignedDeviceIdentityHMAC
 	err := proto.Unmarshal(deviceIdentityBytes, &deviceIdentityContainer)
 	if err != nil {
 		cli.sendPairError(reqID, 500, "internal-error")
@@ -113,7 +113,7 @@ func (cli *Client) handlePair(deviceIdentityBytes []byte, reqID, businessName, p
 		return ErrPairInvalidDeviceIdentityHMAC
 	}
 
-	var deviceIdentity waProto.ADVSignedDeviceIdentity
+	var deviceIdentity waAdv.ADVSignedDeviceIdentity
 	err = proto.Unmarshal(deviceIdentityContainer.Details, &deviceIdentity)
 	if err != nil {
 		cli.sendPairError(reqID, 500, "internal-error")
@@ -127,7 +127,7 @@ func (cli *Client) handlePair(deviceIdentityBytes []byte, reqID, businessName, p
 
 	deviceIdentity.DeviceSignature = generateDeviceSignature(&deviceIdentity, cli.Store.IdentityKey)[:]
 
-	var deviceIdentityDetails waProto.ADVDeviceIdentity
+	var deviceIdentityDetails waAdv.ADVDeviceIdentity
 	err = proto.Unmarshal(deviceIdentity.Details, &deviceIdentityDetails)
 	if err != nil {
 		cli.sendPairError(reqID, 500, "internal-error")
@@ -139,7 +139,7 @@ func (cli *Client) handlePair(deviceIdentityBytes []byte, reqID, businessName, p
 		return ErrPairRejectedLocally
 	}
 
-	cli.Store.Account = proto.Clone(&deviceIdentity).(*waProto.ADVSignedDeviceIdentity)
+	cli.Store.Account = proto.Clone(&deviceIdentity).(*waAdv.ADVSignedDeviceIdentity)
 
 	mainDeviceJID := jid
 	mainDeviceJID.Device = 0
@@ -208,7 +208,7 @@ func concatBytes(data ...[]byte) []byte {
 	return output
 }
 
-func verifyDeviceIdentityAccountSignature(deviceIdentity *waProto.ADVSignedDeviceIdentity, ikp *keys.KeyPair) bool {
+func verifyDeviceIdentityAccountSignature(deviceIdentity *waAdv.ADVSignedDeviceIdentity, ikp *keys.KeyPair) bool {
 	if len(deviceIdentity.AccountSignatureKey) != 32 || len(deviceIdentity.AccountSignature) != 64 {
 		return false
 	}
@@ -220,7 +220,7 @@ func verifyDeviceIdentityAccountSignature(deviceIdentity *waProto.ADVSignedDevic
 	return ecc.VerifySignature(signatureKey, message, signature)
 }
 
-func generateDeviceSignature(deviceIdentity *waProto.ADVSignedDeviceIdentity, ikp *keys.KeyPair) *[64]byte {
+func generateDeviceSignature(deviceIdentity *waAdv.ADVSignedDeviceIdentity, ikp *keys.KeyPair) *[64]byte {
 	message := concatBytes([]byte{6, 1}, deviceIdentity.Details, ikp.Pub[:], deviceIdentity.AccountSignatureKey)
 	sig := ecc.CalculateSignature(ecc.NewDjbECPrivateKey(*ikp.Priv), message)
 	return &sig

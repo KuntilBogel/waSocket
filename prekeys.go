@@ -17,9 +17,9 @@ import (
 	"go.mau.fi/libsignal/keys/prekey"
 	"go.mau.fi/libsignal/util/optional"
 
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/util/keys"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/util/keys"
 )
 
 const (

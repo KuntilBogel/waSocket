@@ -16,9 +16,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/amiruldev20/waSocket/store"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/util/keys"
+	"github.com/techwiz37/waSocket/store"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/util/keys"
 )
 
 // ErrInvalidLength is returned by some database getters if the database returned a byte array with an unexpected length.
@@ -57,13 +57,7 @@ func NewSQLStore(c *Container, jid types.JID) *SQLStore {
 	}
 }
 
-var _ store.IdentityStore = (*SQLStore)(nil)
-var _ store.SessionStore = (*SQLStore)(nil)
-var _ store.PreKeyStore = (*SQLStore)(nil)
-var _ store.SenderKeyStore = (*SQLStore)(nil)
-var _ store.AppStateSyncKeyStore = (*SQLStore)(nil)
-var _ store.AppStateStore = (*SQLStore)(nil)
-var _ store.ContactStore = (*SQLStore)(nil)
+var _ store.AllStores = (*SQLStore)(nil)
 
 const (
 	putIdentityQuery = `

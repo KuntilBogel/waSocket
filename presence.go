@@ -9,9 +9,9 @@ package waSocket
 import (
 	"fmt"
 
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/types/events"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 func (cli *Client) handleChatState(node *waBinary.Node) {

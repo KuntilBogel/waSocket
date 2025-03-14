@@ -13,10 +13,10 @@ import (
 
 	"github.com/google/uuid"
 
-	waProto "github.com/amiruldev20/waSocket/binary/proto"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/util/keys"
-	waLog "github.com/amiruldev20/waSocket/util/log"
+	"github.com/techwiz37/waSocket/proto/waAdv"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/util/keys"
+	waLog "github.com/techwiz37/waSocket/util/log"
 )
 
 type IdentityStore interface {
@@ -126,6 +126,19 @@ type PrivacyTokenStore interface {
 	GetPrivacyToken(user types.JID) (*PrivacyToken, error)
 }
 
+type AllStores interface {
+	IdentityStore
+	SessionStore
+	PreKeyStore
+	SenderKeyStore
+	AppStateSyncKeyStore
+	AppStateStore
+	ContactStore
+	ChatSettingsStore
+	MsgSecretStore
+	PrivacyTokenStore
+}
+
 type Device struct {
 	Log waLog.Logger
 
@@ -136,7 +149,7 @@ type Device struct {
 	AdvSecretKey   []byte
 
 	ID           *types.JID
-	Account      *waProto.ADVSignedDeviceIdentity
+	Account      *waAdv.ADVSignedDeviceIdentity
 	Platform     string
 	BusinessName string
 	PushName     string

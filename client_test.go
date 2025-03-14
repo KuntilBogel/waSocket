@@ -13,10 +13,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/amiruldev20/waSocket"
-	"github.com/amiruldev20/waSocket/store/sqlstore"
-	"github.com/amiruldev20/waSocket/types/events"
-	waLog "github.com/amiruldev20/waSocket/util/log"
+	"github.com/techwiz37/waSocket"
+	"github.com/techwiz37/waSocket/store/sqlstore"
+	"github.com/techwiz37/waSocket/types/events"
+	waLog "github.com/techwiz37/waSocket/util/log"
 )
 
 func eventHandler(evt interface{}) {

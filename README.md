@@ -1,5 +1,5 @@
 # waSocket
-[![Go Reference](https://pkg.go.dev/badge/github.com/amiruldev20/waSocket.svg)](https://pkg.go.dev/github.com/amiruldev20/waSocket)
+[![Go Reference](https://pkg.go.dev/badge/github.com/techwiz37/waSocket.svg)](https://pkg.go.dev/github.com/techwiz37/waSocket)
 
 waSocket is a Go library for the WhatsApp web multidevice API.
 
@@ -13,8 +13,8 @@ discussions.
 [WhatsApp protocol Q&A]: https://github.com/tulir/waSocket/discussions/categories/whatsapp-protocol-q-a
 
 ## Usage
-The [godoc](https://pkg.go.dev/github.com/amiruldev20/waSocket) includes docs for all methods and event types.
-There's also a [simple example](https://pkg.go.dev/github.com/amiruldev20/waSocket#example-package) at the top.
+The [godoc](https://pkg.go.dev/github.com/techwiz37/waSocket) includes docs for all methods and event types.
+There's also a [simple example](https://pkg.go.dev/github.com/techwiz37/waSocket#example-package) at the top.
 
 ## Features
 Most core features are already present:

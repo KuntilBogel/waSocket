@@ -16,7 +16,7 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	waLog "github.com/amiruldev20/waSocket/util/log"
+	waLog "github.com/techwiz37/waSocket/util/log"
 )
 
 type FrameSocket struct {
@@ -199,7 +199,7 @@ func (fs *FrameSocket) processData(msg []byte) {
 				msg = nil
 			}
 		} else {
-			if len(fs.incoming)+len(msg) >= fs.incomingLength {
+			if fs.receivedLength+len(msg) >= fs.incomingLength {
 				copy(fs.incoming[fs.receivedLength:], msg[:fs.incomingLength-fs.receivedLength])
 				msg = msg[fs.incomingLength-fs.receivedLength:]
 				fs.frameComplete()
