@@ -15,11 +15,11 @@ import (
 	"github.com/google/uuid"
 	"go.mau.fi/util/random"
 
-	waProto "github.com/amiruldev20/waSocket/binary/proto"
-	"github.com/amiruldev20/waSocket/store"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/util/keys"
-	waLog "github.com/amiruldev20/waSocket/util/log"
+	"github.com/techwiz37/waSocket/proto/waAdv"
+	"github.com/techwiz37/waSocket/store"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/util/keys"
+	waLog "github.com/techwiz37/waSocket/util/log"
 )
 
 // Container is a wrapper for a SQL database that can contain multiple waSocket sessions.
@@ -104,7 +104,7 @@ func (c *Container) scanDevice(row scannable) (*store.Device, error) {
 	device.Log = c.log
 	device.SignedPreKey = &keys.PreKey{}
 	var noisePriv, identityPriv, preKeyPriv, preKeySig []byte
-	var account waProto.ADVSignedDeviceIdentity
+	var account waAdv.ADVSignedDeviceIdentity
 	var fbUUID uuid.NullUUID
 
 	err := row.Scan(

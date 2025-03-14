@@ -11,8 +11,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/types/events"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 var (

@@ -10,14 +10,16 @@ import (
 	"strconv"
 	"time"
 
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/types/events"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 // TryFetchPrivacySettings will fetch the user's privacy settings, either from the in-memory cache or from the server.
 func (cli *Client) TryFetchPrivacySettings(ignoreCache bool) (*types.PrivacySettings, error) {
-	if val := cli.privacySettingsCache.Load(); val != nil && !ignoreCache {
+	if cli == nil {
+		return nil, ErrClientIsNil
+	} else if val := cli.privacySettingsCache.Load(); val != nil && !ignoreCache {
 		return val.(*types.PrivacySettings), nil
 	}
 	resp, err := cli.sendIQ(infoQuery{

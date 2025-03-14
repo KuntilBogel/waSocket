@@ -12,14 +12,16 @@ import (
 	"strconv"
 	"time"
 
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	waProto "github.com/amiruldev20/waSocket/binary/proto"
-	armadillo "github.com/amiruldev20/waSocket/proto"
-	"github.com/amiruldev20/waSocket/proto/waArmadilloApplication"
-	"github.com/amiruldev20/waSocket/proto/waConsumerApplication"
-	"github.com/amiruldev20/waSocket/proto/waMsgApplication"
-	"github.com/amiruldev20/waSocket/proto/waMsgTransport"
-	"github.com/amiruldev20/waSocket/types"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	armadillo "github.com/techwiz37/waSocket/proto"
+	"github.com/techwiz37/waSocket/proto/waArmadilloApplication"
+	"github.com/techwiz37/waSocket/proto/waConsumerApplication"
+	"github.com/techwiz37/waSocket/proto/waE2E"
+	"github.com/techwiz37/waSocket/proto/waHistorySync"
+	"github.com/techwiz37/waSocket/proto/waMsgApplication"
+	"github.com/techwiz37/waSocket/proto/waMsgTransport"
+	"github.com/techwiz37/waSocket/proto/waWeb"
+	"github.com/techwiz37/waSocket/types"
 )
 
 // QR is emitted after connecting when there's no session data in the device store.
@@ -87,6 +89,7 @@ func (*CATRefreshError) PermanentDisconnectDescription() string { return "CAT re
 func (tb *TemporaryBan) PermanentDisconnectDescription() string {
 	return fmt.Sprintf("temporarily banned: %s", tb.String())
 }
+
 func (cf *ConnectFailure) PermanentDisconnectDescription() string {
 	return fmt.Sprintf("connect failure: %s", cf.Reason.String())
 }
@@ -171,6 +174,9 @@ const (
 	ConnectFailureCATInvalid ConnectFailureReason = 414
 	ConnectFailureNotFound   ConnectFailureReason = 415
 
+	// Status code unknown (not in WA web)
+	ConnectFailureClientUnknown ConnectFailureReason = 418
+
 	ConnectFailureInternalServerError ConnectFailureReason = 500
 	ConnectFailureExperimental        ConnectFailureReason = 501
 	ConnectFailureServiceUnavailable  ConnectFailureReason = 503
@@ -234,7 +240,7 @@ type Disconnected struct{}
 
 // HistorySync is emitted when the phone has sent a blob of historical messages.
 type HistorySync struct {
-	Data *waProto.HistorySync
+	Data *waHistorySync.HistorySync
 }
 
 type DecryptFailMode string
@@ -280,7 +286,7 @@ type NewsletterMessageMeta struct {
 // Message is emitted when receiving a new message.
 type Message struct {
 	Info    types.MessageInfo // Information about the message like the chat and sender IDs
-	Message *waProto.Message  // The actual message struct
+	Message *waE2E.Message    // The actual message struct
 
 	IsEphemeral           bool // True if the message was unwrapped from an EphemeralMessage
 	IsViewOnce            bool // True if the message was unwrapped from a ViewOnceMessage, ViewOnceMessageV2 or ViewOnceMessageV2Extension
@@ -291,7 +297,7 @@ type Message struct {
 	IsEdit                bool // True if the message was unwrapped from an EditedMessage
 
 	// If this event was parsed from a WebMessageInfo (i.e. from a history sync or unavailable message request), the source data is here.
-	SourceWebMsg *waProto.WebMessageInfo
+	SourceWebMsg *waWeb.WebMessageInfo
 	// If this event is a response to an unavailable message request, the request ID is here.
 	UnavailableRequestID types.MessageID
 	// If the message was re-requested from the sender, this is the number of retries it took.
@@ -301,7 +307,7 @@ type Message struct {
 
 	// The raw message struct. This is the raw unmodified data, which means the actual message might
 	// be wrapped in DeviceSentMessage, EphemeralMessage or ViewOnceMessage.
-	RawMessage *waProto.Message
+	RawMessage *waE2E.Message
 }
 
 type FBMessage struct {

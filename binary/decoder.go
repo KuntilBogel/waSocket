@@ -5,8 +5,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/amiruldev20/waSocket/binary/token"
-	"github.com/amiruldev20/waSocket/types"
+	"github.com/techwiz37/waSocket/binary/token"
+	"github.com/techwiz37/waSocket/types"
 )
 
 type binaryDecoder struct {

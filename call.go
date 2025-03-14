@@ -7,13 +7,13 @@
 package waSocket
 
 import (
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/types/events"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 func (cli *Client) handleCallEvent(node *waBinary.Node) {
-	go cli.sendAck(node)
+	defer cli.maybeDeferredAck(node)()
 
 	if len(node.GetChildren()) != 1 {
 		cli.dispatchEvent(&events.UnknownCallEvent{Node: node})

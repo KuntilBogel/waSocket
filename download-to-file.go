@@ -20,8 +20,8 @@ import (
 	"go.mau.fi/util/fallocate"
 	"go.mau.fi/util/retryafter"
 
-	"github.com/amiruldev20/waSocket/proto/waMediaTransport"
-	"github.com/amiruldev20/waSocket/util/cbcutil"
+	"github.com/techwiz37/waSocket/proto/waMediaTransport"
+	"github.com/techwiz37/waSocket/util/cbcutil"
 )
 
 type File interface {
@@ -38,6 +38,9 @@ type File interface {
 //
 // This is otherwise identical to [Download], but writes the attachment to a file instead of returning it as a byte slice.
 func (cli *Client) DownloadToFile(msg DownloadableMessage, file File) error {
+	if cli == nil {
+		return ErrClientIsNil
+	}
 	mediaType := GetMediaType(msg)
 	if mediaType == "" {
 		return fmt.Errorf("%w %T", ErrUnknownMediaType, msg)

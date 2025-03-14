@@ -8,9 +8,11 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	waProto "github.com/amiruldev20/waSocket/binary/proto"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/util/cbcutil"
+	"github.com/techwiz37/waSocket/proto/waCommon"
+	"github.com/techwiz37/waSocket/proto/waServerSync"
+	"github.com/techwiz37/waSocket/proto/waSyncAction"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/util/cbcutil"
 )
 
 // MutationInfo contains information about a single mutation to the app state.
@@ -20,7 +22,7 @@ type MutationInfo struct {
 	// Version is a static number that depends on the thing being mutated.
 	Version int32
 	// Value contains the data for the mutation.
-	Value *waProto.SyncActionValue
+	Value *waSyncAction.SyncActionValue
 }
 
 // PatchInfo contains information about a patch to the app state.
@@ -48,8 +50,8 @@ func BuildMute(target types.JID, mute bool, muteDuration time.Duration) PatchInf
 		Mutations: []MutationInfo{{
 			Index:   []string{IndexMute, target.String()},
 			Version: 2,
-			Value: &waProto.SyncActionValue{
-				MuteAction: &waProto.MuteAction{
+			Value: &waSyncAction.SyncActionValue{
+				MuteAction: &waSyncAction.MuteAction{
 					Muted:            proto.Bool(mute),
 					MuteEndTimestamp: muteEndTimestamp,
 				},
@@ -62,8 +64,8 @@ func newPinMutationInfo(target types.JID, pin bool) MutationInfo {
 	return MutationInfo{
 		Index:   []string{IndexPin, target.String()},
 		Version: 5,
-		Value: &waProto.SyncActionValue{
-			PinAction: &waProto.PinAction{
+		Value: &waSyncAction.SyncActionValue{
+			PinAction: &waSyncAction.PinAction{
 				Pinned: &pin,
 			},
 		},
@@ -85,17 +87,17 @@ func BuildPin(target types.JID, pin bool) PatchInfo {
 // The last message timestamp and last message key are optional and can be set to zero values (`time.Time{}` and `nil`).
 //
 // Archiving a chat will also unpin it automatically.
-func BuildArchive(target types.JID, archive bool, lastMessageTimestamp time.Time, lastMessageKey *waProto.MessageKey) PatchInfo {
+func BuildArchive(target types.JID, archive bool, lastMessageTimestamp time.Time, lastMessageKey *waCommon.MessageKey) PatchInfo {
 	if lastMessageTimestamp.IsZero() {
 		lastMessageTimestamp = time.Now()
 	}
 	archiveMutationInfo := MutationInfo{
 		Index:   []string{IndexArchive, target.String()},
 		Version: 3,
-		Value: &waProto.SyncActionValue{
-			ArchiveChatAction: &waProto.ArchiveChatAction{
+		Value: &waSyncAction.SyncActionValue{
+			ArchiveChatAction: &waSyncAction.ArchiveChatAction{
 				Archived: &archive,
-				MessageRange: &waProto.SyncActionMessageRange{
+				MessageRange: &waSyncAction.SyncActionMessageRange{
 					LastMessageTimestamp: proto.Int64(lastMessageTimestamp.Unix()),
 					// TODO set LastSystemMessageTimestamp?
 				},
@@ -104,7 +106,7 @@ func BuildArchive(target types.JID, archive bool, lastMessageTimestamp time.Time
 	}
 
 	if lastMessageKey != nil {
-		archiveMutationInfo.Value.ArchiveChatAction.MessageRange.Messages = []*waProto.SyncActionMessage{{
+		archiveMutationInfo.Value.ArchiveChatAction.MessageRange.Messages = []*waSyncAction.SyncActionMessage{{
 			Key:       lastMessageKey,
 			Timestamp: proto.Int64(lastMessageTimestamp.Unix()),
 		}}
@@ -127,8 +129,8 @@ func newLabelChatMutation(target types.JID, labelID string, labeled bool) Mutati
 	return MutationInfo{
 		Index:   []string{IndexLabelAssociationChat, labelID, target.String()},
 		Version: 3,
-		Value: &waProto.SyncActionValue{
-			LabelAssociationAction: &waProto.LabelAssociationAction{
+		Value: &waSyncAction.SyncActionValue{
+			LabelAssociationAction: &waSyncAction.LabelAssociationAction{
 				Labeled: &labeled,
 			},
 		},
@@ -149,8 +151,8 @@ func newLabelMessageMutation(target types.JID, labelID, messageID string, labele
 	return MutationInfo{
 		Index:   []string{IndexLabelAssociationMessage, labelID, target.String(), messageID, "0", "0"},
 		Version: 3,
-		Value: &waProto.SyncActionValue{
-			LabelAssociationAction: &waProto.LabelAssociationAction{
+		Value: &waSyncAction.SyncActionValue{
+			LabelAssociationAction: &waSyncAction.LabelAssociationAction{
 				Labeled: &labeled,
 			},
 		},
@@ -171,8 +173,8 @@ func newLabelEditMutation(labelID string, labelName string, labelColor int32, de
 	return MutationInfo{
 		Index:   []string{IndexLabelEdit, labelID},
 		Version: 3,
-		Value: &waProto.SyncActionValue{
-			LabelEditAction: &waProto.LabelEditAction{
+		Value: &waSyncAction.SyncActionValue{
+			LabelEditAction: &waSyncAction.LabelEditAction{
 				Name:    &labelName,
 				Color:   &labelColor,
 				Deleted: &deleted,
@@ -195,8 +197,8 @@ func newSettingPushNameMutation(pushName string) MutationInfo {
 	return MutationInfo{
 		Index:   []string{IndexSettingPushName},
 		Version: 1,
-		Value: &waProto.SyncActionValue{
-			PushNameSetting: &waProto.PushNameSetting{
+		Value: &waSyncAction.SyncActionValue{
+			PushNameSetting: &waSyncAction.PushNameSetting{
 				Name: &pushName,
 			},
 		},
@@ -217,8 +219,8 @@ func newStarMutation(targetJID, senderJID string, messageID types.MessageID, fro
 	return MutationInfo{
 		Index:   []string{IndexStar, targetJID, messageID, fromMe, senderJID},
 		Version: 2,
-		Value: &waProto.SyncActionValue{
-			StarAction: &waProto.StarAction{
+		Value: &waSyncAction.SyncActionValue{
+			StarAction: &waSyncAction.StarAction{
 				Starred: &starred,
 			},
 		},
@@ -242,6 +244,37 @@ func BuildStar(target, sender types.JID, messageID types.MessageID, fromMe, star
 		},
 	}
 }
+// https://github.com/tulir/whatsmeow/pull/702/
+func newDeleteForMeMutation(targetJID, senderJID string, messageInfo types.MessageInfo, fromMe string, deleteMedia bool) MutationInfo {
+	return MutationInfo{
+		Index:   []string{IndexDeleteMessageForMe, targetJID, messageInfo.ID, fromMe, senderJID},
+		Version: 2,
+		Value: &waSyncAction.SyncActionValue{
+			DeleteMessageForMeAction: &waSyncAction.DeleteMessageForMeAction{
+				DeleteMedia:      proto.Bool(deleteMedia),
+				MessageTimestamp: proto.Int64(messageInfo.Timestamp.UnixMilli()),
+			},
+		},
+	}
+}
+
+// BuildDeleteForMe builds an app state patch for deleting a message for me.
+func BuildDeleteForMe(messageInfo types.MessageInfo, deleteMedia bool) PatchInfo {
+	isFromMe := "0"
+	if messageInfo.IsFromMe {
+		isFromMe = "1"
+	}
+	targetJID, senderJID := messageInfo.Chat.String(), messageInfo.Sender.String()
+	if messageInfo.Chat.User == messageInfo.Sender.User {
+		senderJID = "0"
+	}
+	return PatchInfo{
+		Type: WAPatchRegularHigh,
+		Mutations: []MutationInfo{
+			newDeleteForMeMutation(targetJID, senderJID, messageInfo, isFromMe, deleteMedia),
+		},
+	}
+}
 
 func (proc *Processor) EncodePatch(keyID []byte, state HashState, patchInfo PatchInfo) ([]byte, error) {
 	keys, err := proc.getAppStateKey(keyID)
@@ -253,7 +286,7 @@ func (proc *Processor) EncodePatch(keyID []byte, state HashState, patchInfo Patc
 		patchInfo.Timestamp = time.Now()
 	}
 
-	mutations := make([]*waProto.SyncdMutation, 0, len(patchInfo.Mutations))
+	mutations := make([]*waServerSync.SyncdMutation, 0, len(patchInfo.Mutations))
 	for _, mutationInfo := range patchInfo.Mutations {
 		mutationInfo.Value.Timestamp = proto.Int64(patchInfo.Timestamp.UnixMilli())
 
@@ -262,7 +295,7 @@ func (proc *Processor) EncodePatch(keyID []byte, state HashState, patchInfo Patc
 			return nil, fmt.Errorf("failed to marshal mutation index: %w", err)
 		}
 
-		pbObj := &waProto.SyncActionData{
+		pbObj := &waSyncAction.SyncActionData{
 			Index:   indexBytes,
 			Value:   mutationInfo.Value,
 			Padding: []byte{},
@@ -279,15 +312,15 @@ func (proc *Processor) EncodePatch(keyID []byte, state HashState, patchInfo Patc
 			return nil, fmt.Errorf("failed to encrypt mutation: %w", err)
 		}
 
-		valueMac := generateContentMAC(waProto.SyncdMutation_SET, encryptedContent, keyID, keys.ValueMAC)
+		valueMac := generateContentMAC(waServerSync.SyncdMutation_SET, encryptedContent, keyID, keys.ValueMAC)
 		indexMac := concatAndHMAC(sha256.New, keys.Index, indexBytes)
 
-		mutations = append(mutations, &waProto.SyncdMutation{
-			Operation: waProto.SyncdMutation_SET.Enum(),
-			Record: &waProto.SyncdRecord{
-				Index: &waProto.SyncdIndex{Blob: indexMac},
-				Value: &waProto.SyncdValue{Blob: append(encryptedContent, valueMac...)},
-				KeyID: &waProto.KeyId{ID: keyID},
+		mutations = append(mutations, &waServerSync.SyncdMutation{
+			Operation: waServerSync.SyncdMutation_SET.Enum(),
+			Record: &waServerSync.SyncdRecord{
+				Index: &waServerSync.SyncdIndex{Blob: indexMac},
+				Value: &waServerSync.SyncdValue{Blob: append(encryptedContent, valueMac...)},
+				KeyID: &waServerSync.KeyId{ID: keyID},
 			},
 		})
 	}
@@ -304,9 +337,9 @@ func (proc *Processor) EncodePatch(keyID []byte, state HashState, patchInfo Patc
 
 	state.Version += 1
 
-	syncdPatch := &waProto.SyncdPatch{
+	syncdPatch := &waServerSync.SyncdPatch{
 		SnapshotMAC: state.generateSnapshotMAC(patchInfo.Type, keys.SnapshotMAC),
-		KeyID:       &waProto.KeyId{ID: keyID},
+		KeyID:       &waServerSync.KeyId{ID: keyID},
 		Mutations:   mutations,
 	}
 	syncdPatch.PatchMAC = generatePatchMAC(syncdPatch, patchInfo.Type, keys.PatchMAC, state.Version)

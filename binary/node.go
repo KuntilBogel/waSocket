@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/amiruldev20/waSocket/types"
+	"github.com/techwiz37/waSocket/types"
 )
 
 // Attrs is a type alias for the attributes of an XML element (Node).

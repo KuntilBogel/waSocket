@@ -13,12 +13,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/amiruldev20/waSocket/appstate"
-	waBinary "github.com/amiruldev20/waSocket/binary"
-	waProto "github.com/amiruldev20/waSocket/binary/proto"
-	"github.com/amiruldev20/waSocket/store"
-	"github.com/amiruldev20/waSocket/types"
-	"github.com/amiruldev20/waSocket/types/events"
+	"github.com/techwiz37/waSocket/appstate"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/proto/waE2E"
+	"github.com/techwiz37/waSocket/proto/waServerSync"
+	"github.com/techwiz37/waSocket/store"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 // FetchAppState fetches updates to the given type of app state. If fullSync is true, the current
@@ -109,10 +110,9 @@ func (cli *Client) filterContacts(mutations []appstate.Mutation) ([]appstate.Mut
 }
 
 func (cli *Client) dispatchAppState(mutation appstate.Mutation, fullSync bool, emitOnFullSync bool) {
-
 	dispatchEvts := !fullSync || emitOnFullSync
 
-	if mutation.Operation != waProto.SyncdMutation_SET {
+	if mutation.Operation != waServerSync.SyncdMutation_SET {
 		return
 	}
 
@@ -270,7 +270,7 @@ func (cli *Client) dispatchAppState(mutation appstate.Mutation, fullSync bool, e
 	}
 }
 
-func (cli *Client) downloadExternalAppStateBlob(ref *waProto.ExternalBlobReference) ([]byte, error) {
+func (cli *Client) downloadExternalAppStateBlob(ref *waServerSync.ExternalBlobReference) ([]byte, error) {
 	return cli.Download(ref)
 }
 
@@ -318,16 +318,16 @@ func (cli *Client) requestMissingAppStateKeys(ctx context.Context, patches *apps
 }
 
 func (cli *Client) requestAppStateKeys(ctx context.Context, rawKeyIDs [][]byte) {
-	keyIDs := make([]*waProto.AppStateSyncKeyId, len(rawKeyIDs))
+	keyIDs := make([]*waE2E.AppStateSyncKeyId, len(rawKeyIDs))
 	debugKeyIDs := make([]string, len(rawKeyIDs))
 	for i, keyID := range rawKeyIDs {
-		keyIDs[i] = &waProto.AppStateSyncKeyId{KeyID: keyID}
+		keyIDs[i] = &waE2E.AppStateSyncKeyId{KeyID: keyID}
 		debugKeyIDs[i] = hex.EncodeToString(keyID)
 	}
-	msg := &waProto.Message{
-		ProtocolMessage: &waProto.ProtocolMessage{
-			Type: waProto.ProtocolMessage_APP_STATE_SYNC_KEY_REQUEST.Enum(),
-			AppStateSyncKeyRequest: &waProto.AppStateSyncKeyRequest{
+	msg := &waE2E.Message{
+		ProtocolMessage: &waE2E.ProtocolMessage{
+			Type: waE2E.ProtocolMessage_APP_STATE_SYNC_KEY_REQUEST.Enum(),
+			AppStateSyncKeyRequest: &waE2E.AppStateSyncKeyRequest{
 				KeyIDs: keyIDs,
 			},
 		},
