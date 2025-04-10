@@ -118,6 +118,12 @@ func (cli *Client) sendAck(node *waBinary.Node) {
 	}
 	if recipient, ok := node.Attrs["recipient"]; ok {
 		attrs["recipient"] = recipient
+
+		// TODO this hack probably needs to be removed at some point
+		recipientJID, ok := recipient.(types.JID)
+		if ok && recipientJID.Server == types.BotServer && node.Tag == "message" {
+			attrs["recipient"] = types.BotJIDMap[recipientJID]
+		}
 	}
 	if receiptType, ok := node.Attrs["type"]; node.Tag != "message" && ok {
 		attrs["type"] = receiptType
@@ -167,7 +173,7 @@ func (cli *Client) MarkRead(ids []types.MessageID, timestamp time.Time, chat, se
 			// TODO change played to played-self?
 		}
 	}
-	if !sender.IsEmpty() && chat.Server != types.DefaultUserServer && chat.Server != types.MessengerServer {
+	if !sender.IsEmpty() && chat.Server != types.DefaultUserServer && chat.Server != types.HiddenUserServer && chat.Server != types.MessengerServer {
 		node.Attrs["participant"] = sender.ToNonAD()
 	}
 	if len(ids) > 1 {
