@@ -7,6 +7,7 @@
 package store
 
 import (
+	"context"
 	"errors"
 	"time"
 
@@ -74,6 +75,10 @@ func (n *NoopStore) DeleteAllSessions(phone string) error {
 }
 
 func (n *NoopStore) DeleteSession(address string) error {
+	return n.Error
+}
+
+func (n *NoopStore) MigratePNToLID(ctx context.Context, pn, lid types.JID) error {
 	return n.Error
 }
 
@@ -213,11 +218,18 @@ func (n *NoopStore) DeleteDevice(store *Device) error {
 	return n.Error
 }
 
-// Add missing implement https://github.com/tulir/whatsmeow/pull/771
-func (n *NoopStore) GetRepliedAndTimestamp(jid string) (*bool, *int64, error) {
-	return nil, nil, n.Error
+func (n *NoopStore) GetLIDForPN(ctx context.Context, pn types.JID) (types.JID, error) {
+	return types.JID{}, n.Error
 }
 
-func (n *NoopStore) SetRepliedIfNot(jid string) (bool, error) {
-	return false, n.Error
+func (n *NoopStore) GetPNForLID(ctx context.Context, lid types.JID) (types.JID, error) {
+	return types.JID{}, n.Error
+}
+
+func (n *NoopStore) PutManyLIDMappings(ctx context.Context, mappings []LIDMapping) error {
+	return n.Error
+}
+
+func (n *NoopStore) PutLIDMapping(ctx context.Context, lid types.JID, jid types.JID) error {
+	return n.Error
 }
