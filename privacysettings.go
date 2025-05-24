@@ -11,9 +11,9 @@ import (
 	"strconv"
 	"time"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/types/events"
 )
 
 // TryFetchPrivacySettings will fetch the user's privacy settings, either from the in-memory cache or from the server.

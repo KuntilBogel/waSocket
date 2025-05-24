@@ -13,12 +13,12 @@ import (
 	"go.mau.fi/util/random"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/proto/waMmsRetry"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
-	"github.com/techwiz37/waSocket/util/gcmutil"
-	"github.com/techwiz37/waSocket/util/hkdfutil"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	"github.com/KuntilBogel/waSocket/proto/waMmsRetry"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/types/events"
+	"github.com/KuntilBogel/waSocket/util/gcmutil"
+	"github.com/KuntilBogel/waSocket/util/hkdfutil"
 )
 
 func getMediaRetryKey(mediaKey []byte) (cipherKey []byte) {

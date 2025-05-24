@@ -1,8 +1,8 @@
 package waConsumerApplication
 
 import (
-	"github.com/techwiz37/waSocket/proto/armadilloutil"
-	"github.com/techwiz37/waSocket/proto/waMediaTransport"
+	"github.com/KuntilBogel/waSocket/proto/armadilloutil"
+	"github.com/KuntilBogel/waSocket/proto/waMediaTransport"
 )
 
 type ConsumerApplication_Content_Content = isConsumerApplication_Content_Content

@@ -21,9 +21,9 @@ import (
 	"go.mau.fi/util/dbutil"
 	"go.mau.fi/util/exsync"
 
-	"github.com/techwiz37/waSocket/store"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/util/keys"
+	"github.com/KuntilBogel/waSocket/store"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/util/keys"
 )
 
 // ErrInvalidLength is returned by some database getters if the database returned a byte array with an unexpected length.

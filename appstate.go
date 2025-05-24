@@ -13,13 +13,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/techwiz37/waSocket/appstate"
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/proto/waE2E"
-	"github.com/techwiz37/waSocket/proto/waServerSync"
-	"github.com/techwiz37/waSocket/store"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
+	"github.com/KuntilBogel/waSocket/appstate"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	"github.com/KuntilBogel/waSocket/proto/waE2E"
+	"github.com/KuntilBogel/waSocket/proto/waServerSync"
+	"github.com/KuntilBogel/waSocket/store"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/types/events"
 )
 
 // FetchAppState fetches updates to the given type of app state. If fullSync is true, the current

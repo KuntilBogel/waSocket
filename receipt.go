@@ -11,9 +11,9 @@ import (
 	"fmt"
 	"time"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/types/events"
 )
 
 func (cli *Client) handleReceipt(node *waBinary.Node) {

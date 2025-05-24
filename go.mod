@@ -1,4 +1,4 @@
-module github.com/techwiz37/waSocket
+module github.com/KuntilBogel/waSocket
 
 go 1.23.0
 

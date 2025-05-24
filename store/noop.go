@@ -11,8 +11,8 @@ import (
 	"errors"
 	"time"
 
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/util/keys"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/util/keys"
 )
 
 type NoopStore struct {

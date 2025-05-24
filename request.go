@@ -12,8 +12,8 @@ import (
 	"strconv"
 	"time"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/types"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	"github.com/KuntilBogel/waSocket/types"
 )
 
 func (cli *Client) generateRequestID() string {

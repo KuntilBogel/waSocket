@@ -12,16 +12,16 @@ import (
 	"strconv"
 	"time"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	armadillo "github.com/techwiz37/waSocket/proto"
-	"github.com/techwiz37/waSocket/proto/waArmadilloApplication"
-	"github.com/techwiz37/waSocket/proto/waConsumerApplication"
-	"github.com/techwiz37/waSocket/proto/waE2E"
-	"github.com/techwiz37/waSocket/proto/waHistorySync"
-	"github.com/techwiz37/waSocket/proto/waMsgApplication"
-	"github.com/techwiz37/waSocket/proto/waMsgTransport"
-	"github.com/techwiz37/waSocket/proto/waWeb"
-	"github.com/techwiz37/waSocket/types"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	armadillo "github.com/KuntilBogel/waSocket/proto"
+	"github.com/KuntilBogel/waSocket/proto/waArmadilloApplication"
+	"github.com/KuntilBogel/waSocket/proto/waConsumerApplication"
+	"github.com/KuntilBogel/waSocket/proto/waE2E"
+	"github.com/KuntilBogel/waSocket/proto/waHistorySync"
+	"github.com/KuntilBogel/waSocket/proto/waMsgApplication"
+	"github.com/KuntilBogel/waSocket/proto/waMsgTransport"
+	"github.com/KuntilBogel/waSocket/proto/waWeb"
+	"github.com/KuntilBogel/waSocket/types"
 )
 
 // QR is emitted after connecting when there's no session data in the device store.

@@ -17,12 +17,12 @@ import (
 	"go.mau.fi/util/dbutil"
 	"go.mau.fi/util/random"
 
-	"github.com/techwiz37/waSocket/proto/waAdv"
-	"github.com/techwiz37/waSocket/store"
-	"github.com/techwiz37/waSocket/store/sqlstore/upgrades"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/util/keys"
-	waLog "github.com/techwiz37/waSocket/util/log"
+	"github.com/KuntilBogel/waSocket/proto/waAdv"
+	"github.com/KuntilBogel/waSocket/store"
+	"github.com/KuntilBogel/waSocket/store/sqlstore/upgrades"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/util/keys"
+	waLog "github.com/KuntilBogel/waSocket/util/log"
 )
 
 // Container is a wrapper for a SQL database that can contain multiple waSocket sessions.

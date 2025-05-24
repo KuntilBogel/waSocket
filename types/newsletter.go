@@ -14,7 +14,7 @@ import (
 
 	"go.mau.fi/util/jsontime"
 
-	"github.com/techwiz37/waSocket/proto/waE2E"
+	"github.com/KuntilBogel/waSocket/proto/waE2E"
 )
 
 type NewsletterVerificationState string

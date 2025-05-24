@@ -23,15 +23,15 @@ import (
 	"go.mau.fi/util/random"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	armadillo "github.com/techwiz37/waSocket/proto"
-	"github.com/techwiz37/waSocket/proto/waArmadilloApplication"
-	"github.com/techwiz37/waSocket/proto/waCommon"
-	"github.com/techwiz37/waSocket/proto/waConsumerApplication"
-	"github.com/techwiz37/waSocket/proto/waMsgApplication"
-	"github.com/techwiz37/waSocket/proto/waMsgTransport"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
+	waBinary "github.com/KuntilBogel/waSocket/binary"
+	armadillo "github.com/KuntilBogel/waSocket/proto"
+	"github.com/KuntilBogel/waSocket/proto/waArmadilloApplication"
+	"github.com/KuntilBogel/waSocket/proto/waCommon"
+	"github.com/KuntilBogel/waSocket/proto/waConsumerApplication"
+	"github.com/KuntilBogel/waSocket/proto/waMsgApplication"
+	"github.com/KuntilBogel/waSocket/proto/waMsgTransport"
+	"github.com/KuntilBogel/waSocket/types"
+	"github.com/KuntilBogel/waSocket/types/events"
 )
 
 const FBMessageVersion = 3

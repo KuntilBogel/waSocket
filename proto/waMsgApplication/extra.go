@@ -1,10 +1,10 @@
 package waMsgApplication
 
 import (
-	"github.com/techwiz37/waSocket/proto/armadilloutil"
-	"github.com/techwiz37/waSocket/proto/waArmadilloApplication"
-	"github.com/techwiz37/waSocket/proto/waConsumerApplication"
-	"github.com/techwiz37/waSocket/proto/waMultiDevice"
+	"github.com/KuntilBogel/waSocket/proto/armadilloutil"
+	"github.com/KuntilBogel/waSocket/proto/waArmadilloApplication"
+	"github.com/KuntilBogel/waSocket/proto/waConsumerApplication"
+	"github.com/KuntilBogel/waSocket/proto/waMultiDevice"
 )
 
 const (

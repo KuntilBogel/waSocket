@@ -9,7 +9,7 @@ package types
 import (
 	"time"
 
-	"github.com/techwiz37/waSocket/proto/waVnameCert"
+	"github.com/KuntilBogel/waSocket/proto/waVnameCert"
 )
 
 // VerifiedName contains verified WhatsApp business details.
