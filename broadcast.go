@@ -11,8 +11,8 @@ import (
 	"errors"
 	"fmt"
 
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/types"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
 )
 
 func (cli *Client) getBroadcastListParticipants(ctx context.Context, jid types.JID) ([]types.JID, error) {

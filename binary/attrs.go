@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"https://github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types"
 )
 
 // AttrUtility is a helper struct for reading multiple XML attributes and checking for errors afterwards.

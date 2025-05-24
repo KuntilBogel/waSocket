@@ -14,12 +14,12 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"https://github.com/techwiz37/waSocket/appstate"
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/proto/waE2E"
-	"https://github.com/techwiz37/waSocket/store"
-	"https://github.com/techwiz37/waSocket/types"
-	"https://github.com/techwiz37/waSocket/types/events"
+	"github.com/techwiz37/waSocket/appstate"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/proto/waE2E"
+	"github.com/techwiz37/waSocket/store"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 func (cli *Client) handleEncryptNotification(ctx context.Context, node *waBinary.Node) {

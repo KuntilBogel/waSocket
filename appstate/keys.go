@@ -12,9 +12,9 @@ import (
 	"encoding/base64"
 	"sync"
 
-	"https://github.com/techwiz37/waSocket/store"
-	"https://github.com/techwiz37/waSocket/util/hkdfutil"
-	waLog "https://github.com/techwiz37/waSocket/util/log"
+	"github.com/techwiz37/waSocket/store"
+	"github.com/techwiz37/waSocket/util/hkdfutil"
+	waLog "github.com/techwiz37/waSocket/util/log"
 )
 
 // WAPatchName represents a type of app state patch.

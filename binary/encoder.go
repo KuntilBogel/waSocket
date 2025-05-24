@@ -5,8 +5,8 @@ import (
 	"math"
 	"strconv"
 
-	"https://github.com/techwiz37/waSocket/binary/token"
-	"https://github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/binary/token"
+	"github.com/techwiz37/waSocket/types"
 )
 
 type binaryEncoder struct {

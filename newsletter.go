@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/types"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
 )
 
 // NewsletterSubscribeLiveUpdates subscribes to receive live updates from a WhatsApp channel temporarily (for the duration returned).

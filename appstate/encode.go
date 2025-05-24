@@ -9,11 +9,11 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"https://github.com/techwiz37/waSocket/proto/waCommon"
-	"https://github.com/techwiz37/waSocket/proto/waServerSync"
-	"https://github.com/techwiz37/waSocket/proto/waSyncAction"
-	"https://github.com/techwiz37/waSocket/types"
-	"https://github.com/techwiz37/waSocket/util/cbcutil"
+	"github.com/techwiz37/waSocket/proto/waCommon"
+	"github.com/techwiz37/waSocket/proto/waServerSync"
+	"github.com/techwiz37/waSocket/proto/waSyncAction"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/util/cbcutil"
 )
 
 // MutationInfo contains information about a single mutation to the app state.

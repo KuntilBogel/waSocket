@@ -18,11 +18,11 @@ import (
 	"go.mau.fi/libsignal/ecc"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/proto/waAdv"
-	"https://github.com/techwiz37/waSocket/types"
-	"https://github.com/techwiz37/waSocket/types/events"
-	"https://github.com/techwiz37/waSocket/util/keys"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/proto/waAdv"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
+	"github.com/techwiz37/waSocket/util/keys"
 )
 
 var (

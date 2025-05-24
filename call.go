@@ -7,9 +7,9 @@
 package waSocket
 
 import (
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/types"
-	"https://github.com/techwiz37/waSocket/types/events"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 func (cli *Client) handleCallEvent(node *waBinary.Node) {

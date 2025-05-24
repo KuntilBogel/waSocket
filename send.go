@@ -29,11 +29,11 @@ import (
 	"go.mau.fi/util/random"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/proto/waCommon"
-	"https://github.com/techwiz37/waSocket/proto/waE2E"
-	"https://github.com/techwiz37/waSocket/types"
-	"https://github.com/techwiz37/waSocket/types/events"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/proto/waCommon"
+	"github.com/techwiz37/waSocket/proto/waE2E"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 const WebMessageIDPrefix = "3EB0"

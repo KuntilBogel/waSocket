@@ -13,7 +13,7 @@ package lthash
 import (
 	"encoding/binary"
 
-	"https://github.com/techwiz37/waSocket/util/hkdfutil"
+	"github.com/techwiz37/waSocket/util/hkdfutil"
 )
 
 type LTHash struct {

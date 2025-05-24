@@ -15,11 +15,11 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	waBinary "https://github.com/techwiz37/waSocket/binary"
-	"https://github.com/techwiz37/waSocket/proto/waHistorySync"
-	"https://github.com/techwiz37/waSocket/proto/waVnameCert"
-	"https://github.com/techwiz37/waSocket/types"
-	"https://github.com/techwiz37/waSocket/types/events"
+	waBinary "github.com/techwiz37/waSocket/binary"
+	"github.com/techwiz37/waSocket/proto/waHistorySync"
+	"github.com/techwiz37/waSocket/proto/waVnameCert"
+	"github.com/techwiz37/waSocket/types"
+	"github.com/techwiz37/waSocket/types/events"
 )
 
 const (

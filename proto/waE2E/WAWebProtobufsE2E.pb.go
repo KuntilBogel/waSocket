@@ -14,10 +14,10 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 
-	waAdv "https://github.com/techwiz37/waSocket/proto/waAdv"
-	waCommon "https://github.com/techwiz37/waSocket/proto/waCommon"
-	waCompanionReg "https://github.com/techwiz37/waSocket/proto/waCompanionReg"
-	waMmsRetry "https://github.com/techwiz37/waSocket/proto/waMmsRetry"
+	waAdv "github.com/techwiz37/waSocket/proto/waAdv"
+	waCommon "github.com/techwiz37/waSocket/proto/waCommon"
+	waCompanionReg "github.com/techwiz37/waSocket/proto/waCompanionReg"
+	waMmsRetry "github.com/techwiz37/waSocket/proto/waMmsRetry"
 )
 
 const (
@@ -25696,7 +25696,7 @@ const file_waE2E_WAWebProtobufsE2E_proto_rawDesc = "" +
 	"\bKeepType\x12\x15\n" +
 	"\x11UNKNOWN_KEEP_TYPE\x10\x00\x12\x10\n" +
 	"\fKEEP_FOR_ALL\x10\x01\x12\x15\n" +
-	"\x11UNDO_KEEP_FOR_ALL\x10\x02B!Z\x1fhttps://github.com/techwiz37/waSocket/proto/waE2E"
+	"\x11UNDO_KEEP_FOR_ALL\x10\x02B!Z\x1fgithub.com/techwiz37/waSocket/proto/waE2E"
 
 var (
 	file_waE2E_WAWebProtobufsE2E_proto_rawDescOnce sync.Once

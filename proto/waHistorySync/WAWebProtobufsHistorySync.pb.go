@@ -14,11 +14,11 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 
-	waChatLockSettings "https://github.com/techwiz37/waSocket/proto/waChatLockSettings"
-	waCommon "https://github.com/techwiz37/waSocket/proto/waCommon"
-	waE2E "https://github.com/techwiz37/waSocket/proto/waE2E"
-	waSyncAction "https://github.com/techwiz37/waSocket/proto/waSyncAction"
-	waWeb "https://github.com/techwiz37/waSocket/proto/waWeb"
+	waChatLockSettings "github.com/techwiz37/waSocket/proto/waChatLockSettings"
+	waCommon "github.com/techwiz37/waSocket/proto/waCommon"
+	waE2E "github.com/techwiz37/waSocket/proto/waE2E"
+	waSyncAction "github.com/techwiz37/waSocket/proto/waSyncAction"
+	waWeb "github.com/techwiz37/waSocket/proto/waWeb"
 )
 
 const (
@@ -2256,7 +2256,7 @@ const file_waHistorySync_WAWebProtobufsHistorySync_proto_rawDesc = "" +
 	"\bE2EE_MSG\x10\x01\x12\x0e\n" +
 	"\n" +
 	"NE2EE_SELF\x10\x02\x12\x0f\n" +
-	"\vNE2EE_OTHER\x10\x03B)Z'https://github.com/techwiz37/waSocket/proto/waHistorySync"
+	"\vNE2EE_OTHER\x10\x03B)Z'github.com/techwiz37/waSocket/proto/waHistorySync"
 
 var (
 	file_waHistorySync_WAWebProtobufsHistorySync_proto_rawDescOnce sync.Once

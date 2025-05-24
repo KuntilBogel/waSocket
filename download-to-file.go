@@ -21,8 +21,8 @@ import (
 	"go.mau.fi/util/fallocate"
 	"go.mau.fi/util/retryafter"
 
-	"https://github.com/techwiz37/waSocket/proto/waMediaTransport"
-	"https://github.com/techwiz37/waSocket/util/cbcutil"
+	"github.com/techwiz37/waSocket/proto/waMediaTransport"
+	"github.com/techwiz37/waSocket/util/cbcutil"
 )
 
 type File interface {
