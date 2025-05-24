@@ -29,11 +29,11 @@ import (
 	"go.mau.fi/util/random"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/proto/waCommon"
-	"github.com/techwiz37/waSocket/proto/waE2E"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
+	waBinary "https://github.com/techwiz37/waSocket/binary"
+	"https://github.com/techwiz37/waSocket/proto/waCommon"
+	"https://github.com/techwiz37/waSocket/proto/waE2E"
+	"https://github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/types/events"
 )
 
 const WebMessageIDPrefix = "3EB0"
@@ -149,9 +149,6 @@ type SendRequestExtra struct {
 	MediaHandle string
 
 	Meta *types.MsgMetaInfo
-
-	// When sending status message you can specify the recipients
-	Participants []types.JID
 }
 
 // SendMessage sends the given message.
@@ -309,14 +306,10 @@ func (cli *Client) SendMessage(ctx context.Context, to types.JID, message *waE2E
 				extraParams.addressingMode = types.AddressingModePN
 			}
 		} else {
-			if len(req.Participants) != 0 {
-				groupParticipants = req.Participants
-			} else {
-				groupParticipants, err = cli.getBroadcastListParticipants(ctx, to)
-				if err != nil {
-					err = fmt.Errorf("failed to get broadcast list members: %w", err)
-					return
-				}
+			groupParticipants, err = cli.getBroadcastListParticipants(ctx, to)
+			if err != nil {
+				err = fmt.Errorf("failed to get broadcast list members: %w", err)
+				return
 			}
 		}
 		resp.DebugTimings.GetParticipants = time.Since(start)

@@ -9,9 +9,9 @@ package events
 import (
 	"time"
 
-	"github.com/techwiz37/waSocket/appstate"
-	"github.com/techwiz37/waSocket/proto/waSyncAction"
-	"github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/appstate"
+	"https://github.com/techwiz37/waSocket/proto/waSyncAction"
+	"https://github.com/techwiz37/waSocket/types"
 )
 
 // Contact is emitted when an entry in the user's contact list is modified from another device.

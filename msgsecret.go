@@ -15,12 +15,12 @@ import (
 	"go.mau.fi/util/random"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/techwiz37/waSocket/proto/waCommon"
-	"github.com/techwiz37/waSocket/proto/waE2E"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
-	"github.com/techwiz37/waSocket/util/gcmutil"
-	"github.com/techwiz37/waSocket/util/hkdfutil"
+	"https://github.com/techwiz37/waSocket/proto/waCommon"
+	"https://github.com/techwiz37/waSocket/proto/waE2E"
+	"https://github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/types/events"
+	"https://github.com/techwiz37/waSocket/util/gcmutil"
+	"https://github.com/techwiz37/waSocket/util/hkdfutil"
 )
 
 type MsgSecretType string

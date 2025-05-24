@@ -910,7 +910,7 @@ const file_waCompanionReg_WACompanionReg_proto_rawDesc = "" +
 	"\x02IV\x18\x02 \x01(\fR\x02IV\"|\n" +
 	"\x12ClientPairingProps\x120\n" +
 	"\x13isChatDbLidMigrated\x18\x01 \x01(\bR\x13isChatDbLidMigrated\x124\n" +
-	"\x15isSyncdPureLidSession\x18\x02 \x01(\bR\x15isSyncdPureLidSessionB*Z(github.com/techwiz37/waSocket/proto/waCompanionReg"
+	"\x15isSyncdPureLidSession\x18\x02 \x01(\bR\x15isSyncdPureLidSessionB*Z(https://github.com/techwiz37/waSocket/proto/waCompanionReg"
 
 var (
 	file_waCompanionReg_WACompanionReg_proto_rawDescOnce sync.Once

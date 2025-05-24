@@ -24,17 +24,17 @@ import (
 	"go.mau.fi/util/random"
 	"golang.org/x/net/proxy"
 
-	"github.com/techwiz37/waSocket/appstate"
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/proto/waE2E"
-	"github.com/techwiz37/waSocket/proto/waWa6"
-	"github.com/techwiz37/waSocket/proto/waWeb"
-	"github.com/techwiz37/waSocket/socket"
-	"github.com/techwiz37/waSocket/store"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
-	"github.com/techwiz37/waSocket/util/keys"
-	waLog "github.com/techwiz37/waSocket/util/log"
+	"https://github.com/techwiz37/waSocket/appstate"
+	waBinary "https://github.com/techwiz37/waSocket/binary"
+	"https://github.com/techwiz37/waSocket/proto/waE2E"
+	"https://github.com/techwiz37/waSocket/proto/waWa6"
+	"https://github.com/techwiz37/waSocket/proto/waWeb"
+	"https://github.com/techwiz37/waSocket/socket"
+	"https://github.com/techwiz37/waSocket/store"
+	"https://github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/types/events"
+	"https://github.com/techwiz37/waSocket/util/keys"
+	waLog "https://github.com/techwiz37/waSocket/util/log"
 )
 
 // EventHandler is a function that can handle events from WhatsApp.

@@ -10,10 +10,10 @@ import (
 	"context"
 	"time"
 
-	waBinary "github.com/techwiz37/waSocket/binary"
-	"github.com/techwiz37/waSocket/store"
-	"github.com/techwiz37/waSocket/types"
-	"github.com/techwiz37/waSocket/types/events"
+	waBinary "https://github.com/techwiz37/waSocket/binary"
+	"https://github.com/techwiz37/waSocket/store"
+	"https://github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/types/events"
 )
 
 func (cli *Client) handleStreamError(node *waBinary.Node) {

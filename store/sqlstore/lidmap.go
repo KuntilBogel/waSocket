@@ -18,8 +18,8 @@ import (
 	"github.com/rs/zerolog"
 	"go.mau.fi/util/dbutil"
 
-	"github.com/techwiz37/waSocket/store"
-	"github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/store"
+	"https://github.com/techwiz37/waSocket/types"
 )
 
 type CachedLIDMap struct {

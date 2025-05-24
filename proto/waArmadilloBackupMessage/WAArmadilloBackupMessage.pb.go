@@ -14,7 +14,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 
-	waArmadilloBackupCommon "github.com/techwiz37/waSocket/proto/waArmadilloBackupCommon"
+	waArmadilloBackupCommon "https://github.com/techwiz37/waSocket/proto/waArmadilloBackupCommon"
 )
 
 const (
@@ -312,7 +312,7 @@ const file_waArmadilloBackupMessage_WAArmadilloBackupMessage_proto_rawDesc = "" 
 	"\x10FrankingMetadata\x12 \n" +
 	"\vfrankingTag\x18\x03 \x01(\fR\vfrankingTag\x12\"\n" +
 	"\freportingTag\x18\x04 \x01(\fR\freportingTagB\t\n" +
-	"\apayloadB4Z2github.com/techwiz37/waSocket/proto/waArmadilloBackupMessage"
+	"\apayloadB4Z2https://github.com/techwiz37/waSocket/proto/waArmadilloBackupMessage"
 
 var (
 	file_waArmadilloBackupMessage_WAArmadilloBackupMessage_proto_rawDescOnce sync.Once

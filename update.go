@@ -14,8 +14,8 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/techwiz37/waSocket/socket"
-	"github.com/techwiz37/waSocket/store"
+	"https://github.com/techwiz37/waSocket/socket"
+	"https://github.com/techwiz37/waSocket/store"
 )
 
 var clientVersionRegex = regexp.MustCompile(`"client_revision":(\d+),`)

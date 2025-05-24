@@ -17,9 +17,9 @@ import (
 
 	"go.mau.fi/libsignal/ecc"
 
-	"github.com/techwiz37/waSocket/proto/waCompanionReg"
-	"github.com/techwiz37/waSocket/proto/waWa6"
-	"github.com/techwiz37/waSocket/types"
+	"https://github.com/techwiz37/waSocket/proto/waCompanionReg"
+	"https://github.com/techwiz37/waSocket/proto/waWa6"
+	"https://github.com/techwiz37/waSocket/types"
 )
 
 // WAVersionContainer is a container for a WhatsApp web version number.

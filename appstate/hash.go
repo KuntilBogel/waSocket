@@ -14,9 +14,9 @@ import (
 	"fmt"
 	"hash"
 
-	"github.com/techwiz37/waSocket/appstate/lthash"
-	"github.com/techwiz37/waSocket/proto/waServerSync"
-	"github.com/techwiz37/waSocket/proto/waSyncAction"
+	"https://github.com/techwiz37/waSocket/appstate/lthash"
+	"https://github.com/techwiz37/waSocket/proto/waServerSync"
+	"https://github.com/techwiz37/waSocket/proto/waSyncAction"
 )
 
 type Mutation struct {
